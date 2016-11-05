@@ -5,7 +5,6 @@
 
 Checksum::Checksum()
 {
-
 }
 
 Checksum::~Checksum()
@@ -46,6 +45,12 @@ bool Checksum::textVerify(const QString& verifyChecksum, const QString& text, QC
 	return false;
 }
 
+bool Checksum::textVerify(const QString& verifyChecksum, const QString& text, QCryptographicHash::Algorithm algorithm)
+{
+	QString checksum;
+	return textVerify(verifyChecksum, text, algorithm, checksum);
+}
+
 bool Checksum::fileVerify(const QString& verifyChecksum, const QString& filePath, QCryptographicHash::Algorithm algorithm, QString& checksum)
 {
 	checksum = fileChecksum(filePath, algorithm);
@@ -55,4 +60,10 @@ bool Checksum::fileVerify(const QString& verifyChecksum, const QString& filePath
 	}
 
 	return false;
+}
+
+bool Checksum::fileVerify(const QString& verifyChecksum, const QString& filePath, QCryptographicHash::Algorithm algorithm)
+{
+	QString checksum;
+	return fileVerify(verifyChecksum, filePath, algorithm, checksum);
 }
