@@ -17,7 +17,6 @@ FILE(GLOB_RECURSE ALL_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
 
 add_library(${PROJECT_NAME}Lib ${ALL_FILES})
 
-
 if (MSVC)
   # for the VS folders to mirror the folder structure of your project
   foreach(FILE ${ALL_FILES}) 
